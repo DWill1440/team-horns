@@ -1,0 +1,190 @@
+:root {
+	--primary-color: #351c75;
+	--secondary-color: #c87aeb;
+	--tertiary-color: #c9b6d3;
+	--grey-color: #acacac;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	letter-spacing: .01rem;
+}
+
+.container {
+	width: 60%;
+	max-width: 960px;
+	margin: 2rem auto 0 auto;
+	line-height: 1.2;
+}
+
+h1,
+h2 {
+	font-weight: 700;
+	font-size: 2.5rem;
+}
+
+a {
+	text-decoration: none;
+}
+
+.btn {
+	background-color: var(--primary-color);
+	color: #fff;
+	padding: 15px 30px;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	letter-spacing: .03rem;
+	font-size: 1.5rem;
+	margin-right: .5rem;
+}
+
+.btn:hover {
+	background-color: var(--secondary-color);
+	cursor: pointer;
+}
+
+.answer-btn {
+	min-width: 350px;
+	text-align: left;
+}
+
+ul {
+	margin-top: 1rem;
+	list-style: none;
+}
+
+li {
+	margin-bottom: .5rem;
+}
+
+header {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 20px;
+	font-size: 1.2rem;
+}
+
+.high-scores {
+	color: var(--secondary-color);
+}
+
+.high-scores:hover {
+	cursor: pointer;
+}
+
+/* LANDING Page Section*/
+
+.landing-page {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	padding-top: 1rem;
+}
+
+.landing-page p {
+	margin: 1.5rem 0;
+	font-size: 2rem;
+	font-weight: 500;
+}
+
+/* Question CSS */
+
+.feedback-msg {
+	font-size: 1.6rem;
+	font-style: italic;
+	font-weight: 300;
+	color: var(--grey-color);
+	margin-top: 40px;
+	padding-top: 10px;
+	border-top: 1px solid var(--grey-color);
+}
+
+/* GAME OVER */
+.end-game {
+	line-height: 2;
+}
+
+.end-game h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.end-game form {
+	display: flex;
+	align-items: center;
+}
+
+.end-game label {
+	font-size: 1.5rem;
+	margin-right: 1rem;
+}
+
+.end-game input#initials {
+	margin-right: 1rem;
+	height: 2.5rem;
+	min-width: 40%;
+	padding: 5px 10px;
+	font-size: 1.2rem;
+}
+
+.btn-short {
+	padding: 9px 30px;
+}
+
+/* HIGH SCORES */
+.high-scores {
+	margin-top: 7rem;
+}
+
+.high-scores ul {
+	margin-bottom: 1.5rem;
+}
+
+.high-scores li {
+	background-color: var(--tertiary-color);
+	padding: .6rem;
+	margin-bottom: .6rem;
+	font-size: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		width: 80%;
+		margin: 5rem auto 0 auto;
+	}
+	.end-game form label {
+		font-size: 1rem;
+		margin-right: .5rem;
+	}
+	.end-game input#initials {
+		margin-right: .5rem;
+  }
+    .end-game form .btn {
+		font-size: 1rem;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	h1,
+	h2 {
+		font-weight: 700;
+		font-size: 1.5rem;
+	}
+	#page-content .landing p {
+		font-size: 1.5rem;
+		margin: 1rem 0;
+	}
+	.btn {
+		font-size: 1rem;
+	}
+}
