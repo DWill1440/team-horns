@@ -7,7 +7,7 @@ function bindButtons(){
 	document.getElementById('submitZip').addEventListener('click', function(event){
 		event.preventDefault();
 		var zip = document.getElementById('zip').value; // this line gets the zip code from the form entry
-		var url = 'https://api.petfinder.com/pet.getRandom';
+		var url = 'http://api.petfinder.com/pet.getRandom?key=2f95f51b181ddd27883e91878e922466&shelterid=KY305&output=full&format=json';
 		
 		// Within $.ajax{...} is where we fill out our query 
 		$.ajax({
@@ -17,7 +17,7 @@ function bindButtons(){
 			data: {
 				key: apiKey,
 				animal: 'dog',
-				'location': zip,
+				zip: 'location',
 				output: 'basic',
 				format: 'json'
 			},
@@ -27,11 +27,17 @@ function bindButtons(){
 				var dogName = response.petfinder.pet.name.$t;
 				var img = response.petfinder.pet.media.photos.photo[0].$t;
 				var id = response.petfinder.pet.id.$t;
+				var zipcode = response.petfinder.pet.contact.zip.$t;
+				var age = response.petfinder.pet.age.$t;
 
 				var newName = document.createElement('a');
 				var newDiv = document.createElement('div');
+				var newDiv2 = document.createElement('div');
+				var newDiv3 = document.createElement('div');
 				newName.textContent = dogName;
 				newName.href = 'https://www.petfinder.com/petdetail/' + id;
+				newDiv2.textContent = zipcode;
+				newDiv3.textContent = age;
 
 				var newImg = document.createElement('img');
 				newImg.src = img;
@@ -43,6 +49,8 @@ function bindButtons(){
 				newDiv.appendChild(newName);
 				list.appendChild(newDiv);
 				list.appendChild(newImg);
+				list.appendChild(newDiv2);
+				list.appendChild(newDiv3);
 			}
 		});
 		})
