@@ -1,4 +1,4 @@
-var apiKey = 'y2RKgHOMwBIq7gFIoodsstjVZNfObL9AianD6fw1XVr2Ed1Fzg'; // assign our key to a variable, easier to read
+var apiKey = '2f95f51b181ddd27883e91878e922466'; // assign our key to a variable, easier to read
 
 // the next line and function set up the button in our html to be clickable and reactive 
 document.addEventListener('DOMContentLoaded', bindButtons);
@@ -16,7 +16,7 @@ function bindButtons(){
 			dataType: "jsonp",
 			data: {
 				key: apiKey,
-				animal: 'cat',
+				animal: 'dog',
 				'location': zip,
 				output: 'basic',
 				format: 'json'
@@ -24,13 +24,13 @@ function bindButtons(){
 			// Here is where we handle the response we got back from Petfinder
 			success: function( response ) {
 				console.log(response); // debugging
-				var catName = response.petfinder.pet.name.$t;
+				var dogName = response.petfinder.pet.name.$t;
 				var img = response.petfinder.pet.media.photos.photo[0].$t;
 				var id = response.petfinder.pet.id.$t;
 
 				var newName = document.createElement('a');
 				var newDiv = document.createElement('div');
-				newName.textContent = catName;
+				newName.textContent = dogName;
 				newName.href = 'https://www.petfinder.com/petdetail/' + id;
 
 				var newImg = document.createElement('img');
