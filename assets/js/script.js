@@ -27,10 +27,13 @@ function bindButtons(){
 				var dogName = response.petfinder.pet.name.$t;
 				var img = response.petfinder.pet.media.photos.photo[0].$t;
 				var id = response.petfinder.pet.id.$t;
+				var breed = response.petfinder.pet.breeds.breed.$t;
 
                 var newName = document.createElement('h3');
                 newName.setAttribute('class','card-title');
-                newName.textContent = dogName;
+				newName.textContent = dogName;
+				var breedEl = document.createElement('p');
+				breedEl.textContent = breed;
                 
                 
                 var divCol = document.createElement('div');
@@ -57,7 +60,8 @@ function bindButtons(){
                 
                 
                 divImg.appendChild(newImg);
-                divInfo.appendChild(newName);
+				divInfo.appendChild(newName);
+				divInfo.appendChild(breedEl);
                 rowEl.appendChild(divCol);
                 divCol.appendChild(divCard);
                 divCard.appendChild(divImg);
