@@ -31,10 +31,14 @@ function bindButtons(){
 			// Here is where we handle the response we got back from Petfinder
 			success: function( response ) {
 				console.log(response); // debugging
-				var dogName = response.petfinder.pets.pet.name.$t;
-				var img = response.petfinder.pets.pet.media.photos.photo[13].$t;
-				var id = response.petfinder.pets.pet.id.$t;
-				var breed = response.petfinder.pets.pet.breeds.breed.$t;
+				var pet = response.petfinder.pets.pet;
+				var dogName = pet.name.$t;
+				var img = './assets/img/logo.png';
+				if (pet.media.photos && pet.media.photos.photo[3]) {
+					img = pet.media.photos.photo[3].$t;
+				}
+				var id = pet.id.$t;
+				var breed = pet.breeds.breed.$t;
 
                 var newName = document.createElement('h3');
                 newName.setAttribute('class','card-title');
