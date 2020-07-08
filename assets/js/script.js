@@ -7,7 +7,10 @@ function bindButtons(){
 	document.getElementById('submitZip').addEventListener('click', function(event){
 		event.preventDefault();
 		var zip = document.getElementById('zip').value; // this line gets the zip code from the form entry
-		var url = 'http://api.petfinder.com/pet.getRandom';
+		var size = document.getElementById('size').value;
+		var age = document.getElementById('age').value;
+		var sex = document.getElementById('sex').value;
+		var url = 'http://api.petfinder.com/pet.find';
 		
 		// Within $.ajax{...} is where we fill out our query 
 		$.ajax({
@@ -15,6 +18,10 @@ function bindButtons(){
 			jsonp: "callback",
 			dataType: "jsonp",
 			data: {
+				count: 1,
+				size: size,
+				age: age,
+				sex: sex,
 				key: apiKey,
 				animal: 'dog',
 				'location': zip,
@@ -23,11 +30,11 @@ function bindButtons(){
 			},
 			// Here is where we handle the response we got back from Petfinder
 			success: function( response ) {
-				console.log(dogName); // debugging
-				var dogName = response.petfinder.pet.name.$t;
-				var img = response.petfinder.pet.media.photos.photo[0].$t;
-				var id = response.petfinder.pet.id.$t;
-				var breed = response.petfinder.pet.breeds.breed.$t;
+				console.log(response); // debugging
+				var dogName = response.petfinder.pets.pet.name.$t;
+				var img = response.petfinder.pets.pet.media.photos.photo[13].$t;
+				var id = response.petfinder.pets.pet.id.$t;
+				var breed = response.petfinder.pets.pet.breeds.breed.$t;
 
                 var newName = document.createElement('h3');
                 newName.setAttribute('class','card-title');
